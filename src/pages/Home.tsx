@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, ActivityIndicator, Button} from 'react-native';
 import useSWR from 'swr';
 
 //local
-import FetchBookBtn from './../containers/FetchBookBtn';
+
 import BookList from '../containers/BooksList';
 import {BookType} from '../types/book';
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       {isValidating ? (
         <ActivityIndicator />
       ) : (
-        <FetchBookBtn onPress={revalidate} />
+        <Button onPress={revalidate} title="Get Books" />
       )}
       {data && <BookList data={data} />}
     </View>
